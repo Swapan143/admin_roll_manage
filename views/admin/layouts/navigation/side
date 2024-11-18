@@ -1,0 +1,43 @@
+
+  
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <% if (sidebarItems && sidebarItems.length) { %>
+                <% sidebarItems.forEach(item => { %>
+                    <% if(item.sub_menus && item.sub_menus.length){ %>
+
+                    <% } else { %>
+                        
+                    <% }  %>
+                <% }) %>
+            <% }  %>
+            <li class="nav-header">
+                <div class="row dropdown profile-element" style="margin-right: 0px; padding: 15px;">
+                    <a href="">
+                        <img src="/assets/admin/img/logo.png" />
+                    </a>
+                </div>
+                <div class="logo-element">
+                    <img src="/assets/admin/img/logo.png" />
+                </div>
+            </li>
+            <li class="<%= active_menu=='dashboard' ? 'active' : '' %>">
+                <a href="<%= baseUrl %>/admin/dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+            </li>
+            <li class="<%= active_menu=='roll_manage' ? 'active' : '' %>">
+                <a href="<%= baseUrl %>/admin/roll/list"><i class="fa fa-user" aria-hidden="true"></i> <span class="nav-label">Roll Manage</span></a>
+            </li>
+            <li class="<%= active_menu=='user_manage' ? 'active' : '' %>">
+                <a href="<%= baseUrl %>/admin/user/list"><i class="fa fa-user" aria-hidden="true"></i> <span class="nav-label">User Manage</span></a>
+            </li>
+            <!--<li class="">
+                <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">test</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class=""><a href="aaaaaaaa">aaaaaaaaaa</a></li>
+                    <li class=""><a href="aaaaaaaa">bbbbbbbbbb</a></li>
+                </ul>
+            </li>-->
+        </ul>
+    </div>
+</nav>

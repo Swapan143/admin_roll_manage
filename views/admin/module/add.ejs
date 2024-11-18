@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Module Management</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Add Module</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="post" id="sign_in" action="<%= baseUrl %>/admin/module/store">
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="form-group col-md-6">
+                                <label>Module Name <span style="color:red">*</span></label>
+                                <input type="text" class="form-control banner-input only_character" id="module_name" placeholder="Enter module name" name="module_name"  data-validation-engine=" validate[required]" data-errormessage-value-missing="Module name is required" data-prompt-position="topLeft" maxlength="50">
+                               
+                            </div>
+                        </div>
+
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="form-group col-md-6">
+                                <label>Module Url</label>
+                                <input type="text" class="form-control banner-input" id="module_url" placeholder="Enter module url" name="module_url" data-validation-engine="" data-errormessage-value-missing="Module url is required" data-prompt-position="topLeft" maxlength="100">
+                            </div>
+                        </div>
+
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="form-group col-md-6">
+                                <label>Module Icon <span style="color:red">*</span></label>
+                                <input type="text" class="form-control banner-input" id="module_icon" placeholder="Enter module icon" name="module_icon"  data-validation-engine="validate[required]" data-errormessage-value-missing="Module icon is required" data-prompt-position="topLeft" maxlength="50">
+                               
+                            </div>
+                        </div>
+
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="form-group col-md-6">
+                                <label>Controller Name</label>
+                                <input type="text" class="form-control banner-input" id="controller_name" placeholder="Enter controller name" name="controller_name"  data-validation-engine="" data-errormessage-value-missing="Controller name is required" data-prompt-position="topLeft" maxlength="100">
+                               
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="form-group col-md-12" style="display: flex; justify-content: center">
+                                <a class="btn btn-info-back float-right mr-1" href="<%= baseUrl %>/admin/module/list">Back to List</a>
+                                <button class="btn btn-info btn-banner float-right" type="submit"></i>Save</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

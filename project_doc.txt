@@ -1,0 +1,20 @@
+Backend
+===================================================
+==> Node Js
+Database
+===================================================
+==>MongoDb
+Packages/Modules
+====================================================
+1) express js (Framework base on node js) 
+2) mongoose (Object data moduling (ODM) library)
+3) dotenv (Enviroment variable)
+4) ejs (Embedded javascript templeting engine)
+5) multer (Image Uploading)
+6) express-session (Storing session massage)
+7) nodemon (Monitoring server)
+8) path
+9) express-async-handler
+
+npm i express mongoose ejs multer nodemailer bcryptjs express-session cookie-parser connect-flash 
+connect-mongodb-session

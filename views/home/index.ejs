@@ -1,0 +1,42 @@
+<%- include("../layout/header.ejs") %>
+<div class="container">
+    <div class="row g-4">
+        <% posts.forEach((post) => { %>
+        <div class="col-lg-6 mx-auto">
+            <div class="card shadow">
+                <img src="/uploads/post/<%= post.image %>" class="img-fluid" >
+                <div class="card-body p-3">
+                    <h2 class="text-sceondary fw-bold"><%= post.title  %></h2>
+                    <p><%= post.content.substring(0,100)  %> </p>
+                    <div>
+                        <a href="/post/<%= post.slug %>" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="lead my-3 d-flex align-items-center fw-semibold justify-content-between text-sceondary flex-wrap gap-2">
+                        <div>Author : <%= post.user[0].name %></div>
+                        <div>Created : <%= post.createdAt.toLocaleDateString() %></div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="my-4 float-end d-inline-flex align-items-center gap-4">
+        <% if(pagination.hasPrevPage) {%>
+            <div>
+                <a href="/?page=<%=pagination.prevPage %>" class="btn btn-secendary">Previous</a>
+            </div>
+        <% } %>
+        
+        <span>Page <%= pagination.currentPage %> of <%= pagination.totalPage %></span>
+
+        <% if(pagination.hasNextPage) {%>
+            <div>
+                <a href="/?page=<%=pagination.nextPage %>" class="btn btn-secendary">Next</a>
+            </div>
+        <% } %>
+    </div>
+</div>
+<%- include("../layout/footer.ejs") %>

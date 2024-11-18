@@ -1,0 +1,38 @@
+
+  
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="row dropdown profile-element" style="margin-right: 0px; padding: 15px;">
+                    <a href="">
+                        <img src="/assets/admin/img/logo.png" />
+                    </a>
+                </div>
+                <div class="logo-element">
+                    <img src="/assets/admin/img/logo.png" />
+                </div>
+            </li>
+            <% if (sidebarItems && sidebarItems.length) { %>
+                <% sidebarItems.forEach(item => { %>
+                    <% if(item.sub_menus && item.sub_menus.length){ %>
+                        <li class="<%= item.controller_name==active_menu ? 'active' : '' %>">
+                            <a href=""><i class="fa fa-th-large"></i> <span class="nav-label"><%= item.name %></span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <% item.sub_menus.forEach(subitem => { %>
+                                <li class=""><a href="<%= baseUrl %>/admin/<%= subitem.url %>"><%= subitem.name %></a></li>
+                                
+                                <% }) %>
+                            </ul>
+                        </li>
+                       
+                    <% } else { %>
+                        <li class="<%= item.controller_name==active_menu ? 'active' : '' %>">
+                            <a href="<%= baseUrl %>/admin/<%= item.url %>"><i class="<%= item.icon %>"></i> <span class="nav-label"><%= item.name %></span></a>
+                        </li>
+                    <% }  %>
+                <% }) %>
+            <% }  %>
+        </ul>
+    </div>
+</nav>

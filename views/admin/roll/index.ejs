@@ -1,0 +1,92 @@
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Roll List</h2>
+    </div>
+    <div class="col-lg-2 d-flex justify-content-end">
+        <a href="<%= baseUrl %>/admin/roll/add" class="btn btn-primary add-btn"><strong>Add</strong></a>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label>From Date</label>
+                <input type="date" class="form-control banner-input" id="from_date" placeholder="From date" name="from_date" >      
+            </div> 
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label>To Date</label>
+                <input type="date" class="form-control banner-input" id="to_date" placeholder="To Date" name="to_date" >
+                
+            </div> 
+        </div>
+
+        <div class="col-lg-4">
+        
+            <button class="btn btn-primary " style="margin-top: 28px;" id="daterange"><strong>Filter</strong></button>
+        
+        </div>
+
+        
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="user_data_table">
+                            <thead>
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+           
+<script>        
+    $(document).ready(function() {
+        var url = $('#url').val();
+        var dataTable = $('#user_data_table').DataTable(
+        {
+            'scrollX': true,
+            'searching': false,
+            'processing': true,
+            'serverSide': true,
+            'ordering': true,
+            'ajax': {
+                'url': url + '/admin/roll/get-data-ajax',
+                'data': function(data) {
+                    var Fdate = $('#from_date').val();
+                    var Tdate = $('#to_date').val();
+    
+                    data.searchFdate = Fdate;
+                    data.searchTdate = Tdate;
+                }
+            },
+            columns: [
+                { data: 'sl', orderable: false },
+                { data: 'name' },
+                { data: 'created_at' },
+                { data: 'action', orderable: false }
+            ],
+            "order": [[2, 'desc']]
+        });
+    
+        $('#daterange').on('click', function() {
+            dataTable.draw();
+        });
+    });
+</script>
+
+
